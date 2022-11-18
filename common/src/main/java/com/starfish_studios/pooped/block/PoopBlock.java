@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -44,24 +45,11 @@ public class PoopBlock extends Block implements SimpleWaterloggedBlock {
         super(properties);
     }
 
-    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if ((Boolean)state.getValue(LIT)) {
-            if (this.spawnParticles && random.nextInt(5) == 0) {
-                for(int i = 0; i < random.nextInt(1) + 1; ++i) {
-                    level.addParticle(ParticleTypes.CLOUD, (double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5, (double)(random.nextFloat() / 2.0F), 5.0E-5, (double)(random.nextFloat() / 2.0F));
-                }
-            }
-
-        }
-    }
-
     @Override
     public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
-        return !useContext.isSecondaryUseActive() && useContext.getItemInHand().getItem() == this.asItem() && (Integer)state.getValue(POOPS) < 3 ? true : super.canBeReplaced(state, useContext);
+        return !useContext.isSecondaryUseActive() && useContext.getItemInHand().getItem() == this.asItem() && (Integer) state.getValue(POOPS) < 3 || super.canBeReplaced(state, useContext);
     }
 
-
-    public boolean spawnParticles;
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -100,9 +88,13 @@ public class PoopBlock extends Block implements SimpleWaterloggedBlock {
         return Block.canSupportCenter(level, pos.below(), Direction.UP);
     }
 
+    public PushReaction getPistonPushReaction(BlockState state) {
+        return PushReaction.DESTROY;
+    }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{POOPS, WATERLOGGED, LIT});
+        builder.add(POOPS, WATERLOGGED, LIT);
     }
 
     @Override

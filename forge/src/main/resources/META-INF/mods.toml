@@ -4,9 +4,9 @@ license = "MIT"
 issueTrackerURL = "https://github.com/starfish-studios/DelightfulDecor/issues"
 
 [[mods]]
-modId = "delightful_decor"
+modId = "pooped"
 version = "${version}"
-displayName = "delightful_decor"
+displayName = "pooped"
 #updateJSONURL="http://myurl.me/"
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/delightful_decor"
 logoFile = "icon.png"
@@ -16,14 +16,14 @@ description = '''
 Decorative blocks out of scope to Another Furniture
 '''
 
-[[dependencies.delightful_decor]]
+[[dependencies.pooped]]
 modId = "forge"
 mandatory = true
 versionRange = "[43.1.1,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.delightful_decor]]
+[[dependencies.pooped]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.19.2,1.20)"

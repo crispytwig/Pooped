@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "candles=1": {
+      "model": "pooped:block/small_poop"
+    },
+    "candles=2": {
+      "model": "pooped:block/medium_poop"
+    },
+    "candles=3": {
+      "model": "pooped:block/large_poop"
+    }
+  }
+}

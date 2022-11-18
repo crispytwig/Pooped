@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "another_furniture",
+  "id": "pooped",
   "version": "${version}",
-  "name": "Another Furniture",
+  "name": "Pooped",
   "description": "Decorating your home just got better! Another Furniture adds various furniture, with the goal of staying vanilla-styled and consistently sized, keeping normal blocks and player sizes in mind.",
   "authors": [
     "Starfish Studios"
@@ -16,15 +16,15 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.starfish_studios.delightful_decor.fabric.DelightfulDecorFabric"
+      "com.starfish_studios.pooped.fabric.PoopedFabric"
     ],
     "client": [
-      "com.starfish_studios.delightful_decor.fabric.DelightfulDecorFabricClient"
+      "com.starfish_studios.pooped.fabric.PoopedFabricClient"
     ]
   },
   "mixins": [
-    "delightful_decor.mixins.json",
-    "delightful_decor-common.mixins.json"
+    "pooped.mixins.json",
+    "pooped-common.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.9",

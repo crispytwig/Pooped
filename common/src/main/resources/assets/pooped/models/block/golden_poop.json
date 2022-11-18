@@ -1,0 +1,7 @@
+{
+	"parent": "pooped:block/large_poop",
+	"textures": {
+		"0": "pooped:block/golden_poop",
+		"particle": "pooped:block/golden_poop"
+	}
+}

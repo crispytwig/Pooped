@@ -11,8 +11,8 @@ architectury {
 
 loom {
     forge {
-        mixinConfig "delightful_decor-common.mixins.json"
-        mixinConfig "delightful_decor.mixins.json"
+        mixinConfig "pooped-common.mixins.json"
+        mixinConfig "pooped.mixins.json"
     }
 }
 

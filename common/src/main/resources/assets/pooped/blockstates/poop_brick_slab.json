@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "pooped:block/poop_brick_slab"
+    },
+    "type=double": {
+      "model": "pooped:block/poop_bricks"
+    },
+    "type=top": {
+      "model": "pooped:block/poop_brick_slab_top"
+    }
+  }
+}

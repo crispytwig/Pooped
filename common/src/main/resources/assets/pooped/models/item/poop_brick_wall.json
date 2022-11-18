@@ -1,0 +1,6 @@
+{
+    "parent": "pooped:block/poop_brick_wall_inventory",
+    "textures": {
+        "wall": "pooped:block/poop_bricks"
+    }
+}

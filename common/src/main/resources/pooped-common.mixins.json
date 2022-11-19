@@ -7,8 +7,7 @@
   ],
   "mixins": [
     "AnimalMixin",
-    "BlockMixin",
-    "NoteBlockInstrumentMixin"
+    "BlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

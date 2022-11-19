@@ -25,7 +25,7 @@ public class AnimalMixin extends AgeableMob {
 
     @Inject(method = "aiStep", at = @At("HEAD"))
     public void aiStep(CallbackInfo ci) {
-        if (!this.level.isClientSide && this.isAlive() && !this.isBaby() && --this.poopTime <= 0) {
+        if (!this.level.isClientSide && this.isAlive() && !this.isBaby() && --this.poopTime <= 0 || this.isAlive() && this.isBaby() && --this.poopTime <= 0) {
             this.playSound(SoundEvents.HONEY_BLOCK_PLACE, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
             this.spawnAtLocation(PBlocks.POOP.get().asItem());
             this.gameEvent(GameEvent.ENTITY_PLACE);

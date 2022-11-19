@@ -1,0 +1,9 @@
+{
+	"block.note_block.fart": {
+		"category": "block",
+		"sounds": [
+			"pooped:fart"
+		],
+		"subtitle": "subtitles.block.pooped.note_block.fart"
+	}
+}

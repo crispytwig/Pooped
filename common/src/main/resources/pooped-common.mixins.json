@@ -6,7 +6,9 @@
   "client": [
   ],
   "mixins": [
-    "BlockMixin"
+    "AnimalMixin",
+    "BlockMixin",
+    "NoteBlockInstrumentMixin"
   ],
   "injectors": {
     "defaultRequire": 1

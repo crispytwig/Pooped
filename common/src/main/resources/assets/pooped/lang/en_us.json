@@ -2,10 +2,13 @@
     "itemGroup.pooped": "Pooped",
     "itemGroup.pooped_tab": "Pooped",
 
-    "block.pooped.golden_poop": "Golden Poop",
 
     "block.pooped.poop": "Poop",
+    "block.pooped.manure": "Manure",
+    "block.pooped.golden_poop": "Golden Poop",
+
     "block.pooped.poop_block": "Poop Block",
+
     "block.pooped.poop_bricks": "Poop Bricks",
     "block.pooped.poop_brick_slab": "Poop Brick Slab",
     "block.pooped.poop_brick_stairs": "Poop Brick Stairs",

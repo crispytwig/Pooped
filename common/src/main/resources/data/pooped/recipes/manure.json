@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:dirt"
+        },
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "item": "pooped:poop"
+        }
+    ],
+    "result": {
+        "item": "pooped:manure",
+        "count": 1
+    }
+}

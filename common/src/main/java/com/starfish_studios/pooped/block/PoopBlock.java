@@ -92,6 +92,17 @@ public class PoopBlock extends Block implements SimpleWaterloggedBlock {
         return PushReaction.DESTROY;
     }
 
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        float chance = 0.7F;
+        if (chance < random.nextFloat()) {
+            double d = (float)pos.getX() + 0.5 + (random.nextFloat() - 0.5);
+            double e = (float)pos.getY() + 0.8 + (random.nextFloat() - 0.5);
+            double f = (float)pos.getZ() + 0.5 + (random.nextFloat() - 0.5);
+            level.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, d, e, f, 0.0, 0.01, 0.0);
+
+        }
+    }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(POOPS, WATERLOGGED, LIT);

@@ -1,6 +1,7 @@
 package com.starfish_studios.pooped.mixin;
 
 import com.starfish_studios.pooped.registry.PBlockTags;
+import com.starfish_studios.pooped.registry.PRegistry;
 import com.starfish_studios.pooped.registry.PSoundEvents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.state.BlockState;
@@ -30,7 +31,7 @@ public class NoteBlockInstrumentMixin {
     @Shadow @Final private SoundEvent soundEvent;
 
     static {
-        addVariant("FART", "fart", PSoundEvents.NOTE_BLOCK_FART.get());
+        addVariant("FART", "fart", PRegistry.getFartSound());
     }
 
     @Invoker("<init>")

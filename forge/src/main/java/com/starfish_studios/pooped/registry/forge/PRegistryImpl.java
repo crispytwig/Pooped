@@ -16,7 +16,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -74,5 +73,9 @@ public class PRegistryImpl {
 
     public static <T extends Block> void setFlammable(Block fireBlock, Supplier<T> block, int encouragement, int flammability) {
         ((FireBlockAccessor)fireBlock).invokeSetFlammable(block.get(), encouragement, flammability);
+    }
+
+    public static SoundEvent getFartSound() {
+        return EarlySoundEvents.NOTE_BLOCK_FART;
     }
 }

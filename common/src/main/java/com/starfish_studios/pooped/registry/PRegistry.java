@@ -87,4 +87,9 @@ public class PRegistry {
     public static <T extends Block> void setFlammable(Block fireBlock, Supplier<T> block, int encouragement, int flammability) {
         throw new AssertionError();
     }
+
+    @ExpectPlatform
+    public static SoundEvent getFartSound() {
+        throw new AssertionError();
+    }
 }

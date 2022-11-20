@@ -2,6 +2,7 @@ package com.starfish_studios.pooped.registry.fabric;
 
 import com.starfish_studios.pooped.Pooped;
 import com.starfish_studios.pooped.registry.PRegistry;
+import com.starfish_studios.pooped.registry.PSoundEvents;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -71,5 +72,9 @@ public class PRegistryImpl {
 
     public static <T extends Block> void setFlammable(Block fireBlock, Supplier<T> block, int encouragement, int flammability) {
         FlammableBlockRegistry.getInstance(fireBlock).add(block.get(), encouragement, flammability);
+    }
+
+    public static SoundEvent getFartSound() {
+        return PSoundEvents.NOTE_BLOCK_FART.get();
     }
 }

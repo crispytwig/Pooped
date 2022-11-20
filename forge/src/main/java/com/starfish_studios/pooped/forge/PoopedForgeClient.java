@@ -2,6 +2,7 @@ package com.starfish_studios.pooped.forge;
 
 import com.starfish_studios.pooped.Pooped;
 import com.starfish_studios.pooped.client.PoopedClient;
+import com.starfish_studios.pooped.registry.forge.EarlySoundEvents;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -13,6 +14,7 @@ public class PoopedForgeClient {
     @SubscribeEvent
     public static void init(FMLClientSetupEvent event) {
         PoopedClient.init();
+        EarlySoundEvents.init();
     }
 
     @SubscribeEvent

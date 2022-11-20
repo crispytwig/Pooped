@@ -18,7 +18,7 @@
                   "condition": "minecraft:block_state_property",
                   "block": "pooped:poop",
                   "properties": {
-                    "candles": "2"
+                    "level": "2"
                   }
                 }
               ]
@@ -32,7 +32,7 @@
                   "condition": "minecraft:block_state_property",
                   "block": "pooped:poop",
                   "properties": {
-                    "candles": "3"
+                    "level": "3"
                   }
                 }
               ]

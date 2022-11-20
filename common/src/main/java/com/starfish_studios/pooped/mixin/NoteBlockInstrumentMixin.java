@@ -22,8 +22,8 @@ import java.util.List;
 
 @Mixin(NoteBlockInstrument.class)
 public class NoteBlockInstrumentMixin {
-    @Shadow
     @Final
+    @Shadow
     @Mutable
     private static NoteBlockInstrument[] $VALUES;
 

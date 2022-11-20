@@ -1,12 +1,12 @@
 {
   "variants": {
-    "candles=1": {
+    "level=1": {
       "model": "pooped:block/small_poop"
     },
-    "candles=2": {
+    "level=2": {
       "model": "pooped:block/medium_poop"
     },
-    "candles=3": {
+    "level=3": {
       "model": "pooped:block/large_poop"
     }
   }

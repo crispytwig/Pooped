@@ -3,23 +3,16 @@ package com.starfish_studios.pooped.registry;
 import com.starfish_studios.pooped.Pooped;
 import com.starfish_studios.pooped.block.GoldenPoopBlock;
 import com.starfish_studios.pooped.block.PoopBlock;
-import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.Half;
-import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraft.world.level.material.Material;
 
 import java.util.function.Supplier;
 
-import static net.minecraft.world.level.block.StairBlock.*;
-
 public class PBlocks {
 
-    public static final Supplier<Block> POOP = registerBlock("poop", () -> new PoopBlock(Block.Properties.of(Material.FROGSPAWN).strength(0.1F).sound(SoundType.HONEY_BLOCK).noOcclusion()));
+    public static final Supplier<Block> POOP = registerBlock("poop", () -> new PoopBlock(Block.Properties.of(Material.FROGSPAWN).randomTicks().strength(0.1F).sound(SoundType.HONEY_BLOCK).noOcclusion()));
     public static final Supplier<Block> GOLDEN_POOP = registerBlock("golden_poop", () -> new GoldenPoopBlock(Block.Properties.of(Material.METAL).strength(0.3F).sound(SoundType.METAL).lightLevel((state) -> 8).noOcclusion().emissiveRendering((state, level, pos) -> true)));
 
     public static final Supplier<Block> POOP_BLOCK = registerBlock("poop_block", () -> new Block(Block.Properties.of(Material.FROGSPAWN).strength(0.4F).sound(SoundType.HONEY_BLOCK)));

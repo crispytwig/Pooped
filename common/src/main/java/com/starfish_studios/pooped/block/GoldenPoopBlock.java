@@ -12,6 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -44,11 +45,18 @@ public class GoldenPoopBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockState blockState = context.getLevel().getBlockState(context.getClickedPos());
-         {
+        {
             FluidState fluidState = context.getLevel().getFluidState(context.getClickedPos());
             boolean bl = fluidState.getType() == Fluids.WATER;
-            return (BlockState)super.getStateForPlacement(context).setValue(WATERLOGGED, bl);
+            return (BlockState) super.getStateForPlacement(context).setValue(WATERLOGGED, bl);
         }
+    }
+
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos currentPos, BlockPos neighborPos) {
+        if ((Boolean) state.getValue(WATERLOGGED)) {
+            level.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        }
+        return state;
     }
 
     public PushReaction getPistonPushReaction(BlockState state) {

@@ -12,6 +12,6 @@ public class PItems {
 
     public static void init() {}
 
-    public static final Supplier<Item> MANURE = registerItem("manure", () -> new BoneMealItem(new Item.Properties().tab(Pooped.TAB)));
+    public static final Supplier<Item> FERTILIZER = registerItem("fertilizer", () -> new BoneMealItem(new Item.Properties().tab(Pooped.TAB)));
 
 }

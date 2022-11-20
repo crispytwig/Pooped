@@ -31,9 +31,8 @@ import java.util.Optional;
 
 import static net.minecraft.world.level.block.CampfireBlock.LIT;
 
-public class PoopBlock extends Block implements SimpleWaterloggedBlock {
+public class PoopBlock extends Block {
 
-    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final int MIN_SHITS = 1;
     public static final int MAX_SHITS = 3;
     public static final IntegerProperty POOPS;
@@ -59,7 +58,7 @@ public class PoopBlock extends Block implements SimpleWaterloggedBlock {
         } else {
             FluidState fluidState = context.getLevel().getFluidState(context.getClickedPos());
             boolean bl = fluidState.getType() == Fluids.WATER;
-            return (BlockState)super.getStateForPlacement(context).setValue(WATERLOGGED, bl);
+            return (BlockState)super.getStateForPlacement(context);
         }
     }
 
@@ -105,26 +104,6 @@ public class PoopBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(POOPS, WATERLOGGED, LIT);
-    }
-
-    @Override
-    public boolean canPlaceLiquid(BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
-        return SimpleWaterloggedBlock.super.canPlaceLiquid(level, pos, state, fluid);
-    }
-
-    @Override
-    public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluidState) {
-        return SimpleWaterloggedBlock.super.placeLiquid(level, pos, state, fluidState);
-    }
-
-    @Override
-    public ItemStack pickupBlock(LevelAccessor level, BlockPos pos, BlockState state) {
-        return SimpleWaterloggedBlock.super.pickupBlock(level, pos, state);
-    }
-
-    @Override
-    public Optional<SoundEvent> getPickupSound() {
-        return SimpleWaterloggedBlock.super.getPickupSound();
+        builder.add(POOPS, LIT);
     }
 }

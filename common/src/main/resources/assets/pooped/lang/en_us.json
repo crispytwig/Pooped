@@ -1,10 +1,11 @@
 {
     "itemGroup.pooped": "Pooped",
     "itemGroup.pooped_tab": "Pooped",
+    "itemGroup.pooped.pooped": "Pooped",
 
 
     "block.pooped.poop": "Poop",
-    "block.pooped.manure": "Manure",
+    "item.pooped.fertilizer": "Fertilizer",
     "block.pooped.golden_poop": "Golden Poop",
 
     "block.pooped.poop_block": "Poop Block",

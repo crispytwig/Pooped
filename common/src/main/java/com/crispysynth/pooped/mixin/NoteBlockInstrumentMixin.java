@@ -26,9 +26,6 @@ public class NoteBlockInstrumentMixin {
     @Mutable
     private static NoteBlockInstrument[] $VALUES;
 
-    @Mutable
-    @Shadow @Final private SoundEvent soundEvent;
-
     static {
         addVariant("FART", "fart", PRegistry.getFartSound());
     }
@@ -40,7 +37,7 @@ public class NoteBlockInstrumentMixin {
 
     @Inject(method = "byState", at = @At("HEAD"), cancellable = true)
     private static void hookByState(BlockState state, CallbackInfoReturnable<NoteBlockInstrument> cir) {
-        if (state.is(PBlockTags.POOP)) {
+        if (state.is(PBlockTags.FART_NOTE_BLOCKS)) {
             cir.setReturnValue(NoteBlockInstrument.valueOf("FART"));
         }
     }

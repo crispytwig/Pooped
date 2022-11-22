@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.Block;
 
 public class PBlockTags {
 
-    public static final TagKey<Block> POOP = blockTag("poop");
+    public static final TagKey<Block> FART_NOTE_BLOCKS = blockTag("note_blocks/fart");
 
     private static TagKey<Block> blockTag(String name) {
         return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(Pooped.MOD_ID, name));

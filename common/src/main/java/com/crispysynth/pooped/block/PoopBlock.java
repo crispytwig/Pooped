@@ -91,4 +91,6 @@ public class PoopBlock extends Block {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(POOPS, ModBlockStateProperties.STEAMING);
     }
+
+
 }

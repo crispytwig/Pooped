@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 
 public class PBlocks {
 
-    public static final Supplier<Block> POOP = registerBlock("poop", () -> new PoopBlock(Block.Properties.of(Material.FROGSPAWN).randomTicks().strength(0.1F).sound(SoundType.HONEY_BLOCK).noOcclusion()));
+    public static final Supplier<Block> POOP = registerBlock("poop", () -> new PoopBlock(Block.Properties.of(Material.FROGSPAWN).randomTicks().noCollission().strength(0.1F).sound(SoundType.HONEY_BLOCK).noOcclusion()));
     public static final Supplier<Block> GOLDEN_POOP = registerBlock("golden_poop", () -> new GoldenPoopBlock(Block.Properties.of(Material.METAL).strength(0.8F).sound(SoundType.METAL).lightLevel((state) -> 8).noOcclusion().emissiveRendering((state, level, pos) -> true)));
 
     public static final Supplier<Block> POOP_BLOCK = registerBlock("poop_block", () -> new Block(Block.Properties.of(Material.FROGSPAWN).strength(0.4F).sound(SoundType.HONEY_BLOCK)));

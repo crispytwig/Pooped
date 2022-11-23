@@ -1,7 +1,13 @@
 {
   "variants": {
-    "": {
-      "model": "pooped:block/golden_poop"
+    "level=1": {
+      "model": "pooped:block/small_golden_poop"
+    },
+    "level=2": {
+      "model": "pooped:block/medium_golden_poop"
+    },
+    "level=3": {
+      "model": "pooped:block/large_golden_poop"
     }
   }
 }

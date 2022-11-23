@@ -6,15 +6,21 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -31,7 +37,8 @@ public class PoopBlock extends Block {
     public PoopBlock(Properties properties) {
         super(properties);
         registerDefaultState(this.stateDefinition.any()
-                .setValue(ModBlockStateProperties.STEAMING, true));
+                .setValue(ModBlockStateProperties.STEAMING, true)
+                .setValue(ModBlockStateProperties.PERSISTENT, false));
     }
 
     @Override
@@ -41,13 +48,14 @@ public class PoopBlock extends Block {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        boolean steaming = context.getPlayer() == null;
+        boolean playerPlaced = context.getPlayer() != null;
         BlockState blockState = context.getLevel().getBlockState(context.getClickedPos());
         if (blockState.is(this)) {
             return blockState.cycle(POOPS);
-        } else {
-            return super.getStateForPlacement(context).setValue(ModBlockStateProperties.STEAMING, steaming);
         }
+        return super.getStateForPlacement(context)
+                .setValue(ModBlockStateProperties.STEAMING, !playerPlaced)
+                .setValue(ModBlockStateProperties.PERSISTENT, playerPlaced);
     }
 
     @Override
@@ -71,11 +79,22 @@ public class PoopBlock extends Block {
 
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (state.getValue(ModBlockStateProperties.STEAMING) && random.nextInt(2) == 0) {
+        if (!state.getValue(ModBlockStateProperties.PERSISTENT) && level.isRainingAt(pos)) {
+            level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
+        } else if (state.getValue(ModBlockStateProperties.STEAMING) && random.nextInt(2) == 0) {
             level.setBlockAndUpdate(pos, state.setValue(ModBlockStateProperties.STEAMING, false));
         }
     }
 
+    @Override
+    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+        if (entity instanceof LivingEntity) {
+            double motionMultiplier = 1-(state.getValue(POOPS) * 0.1);
+            entity.makeStuckInBlock(state, new Vec3(motionMultiplier, motionMultiplier, motionMultiplier));
+        }
+    }
+
+    @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         float chance = 0.95F;
         if (state.getValue(ModBlockStateProperties.STEAMING) && chance < random.nextFloat()) {
@@ -89,7 +108,7 @@ public class PoopBlock extends Block {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(POOPS, ModBlockStateProperties.STEAMING);
+        builder.add(POOPS, ModBlockStateProperties.STEAMING, ModBlockStateProperties.PERSISTENT);
     }
 
 

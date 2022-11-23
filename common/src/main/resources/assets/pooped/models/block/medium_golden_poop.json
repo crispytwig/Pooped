@@ -1,0 +1,9 @@
+{
+	"parent": "pooped:block/medium_poop",
+	"render_type": "cutout",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "pooped:block/golden_poop",
+		"particle": "pooped:block/golden_poop"
+	}
+}
